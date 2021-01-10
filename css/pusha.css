@@ -1,0 +1,100 @@
+body
+{
+  transition-duration: 0.3s;
+}
+.pusha-active,
+.pusha-active body 
+{
+  overflow: auto;
+  margin-left: -105px;
+  transition-duration: 0.3s;
+}
+
+.pusha-wrapper 
+{
+  position: relative;
+  z-index: 200;
+  height: 100%;
+  background-color: #FF5F54FF;
+}
+
+.pusha-panel 
+{
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  will-change: transform;
+}
+
+.pusha-panel--right 
+{
+  width: 300px;
+  height: 100%;
+  background-color: #FF5F54FF;
+  top: 0;
+  right: 0;
+  transform: translateX(100%);
+  z-index: 1000;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, -webkit-transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease;
+  transition: visibility 0s linear 0.3s, opacity 0.05s linear 0.3s, transform 0.3s ease;
+}
+@media screen and (min-width: 992px) 
+{
+    .pusha-panel--right
+    {
+      display: none;
+      visibility: hidden;
+      opacity: 0;
+    }
+    .pusha-blocker
+    {
+        display: none;
+    }
+}
+.pusha-panel--right.pusha-panel--active 
+{
+  transition: opacity 0.05s;
+  transition: opacity 0.05s, transform 0.3s ease;
+  transition: opacity 0.05s, transform 0.3s ease;
+
+}
+
+.pusha-panel--active {
+  opacity: 1;
+  visibility: visible;
+  transform: none !important;
+}
+
+.pusha-panel__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 2px 30px 3px rgba(0,0,0,0.5);
+  right: 0;
+  height: 100%;
+
+}
+.pusha-blocker {
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 210;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  user-select: none;
+  transition: visibility 0.3s ease 0.3s, transform 0.3s ease, opacity 0.3s ease;
+  transition: visibility 0.3s ease 0.3s, transform 0.3s ease, opacity 0.3s ease;
+}
+
+.pusha-active .pusha-blocker {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: opacity 0.3s ease, -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, -webkit-transform 0.3s ease;
+}
